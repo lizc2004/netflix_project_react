@@ -695,4 +695,213 @@ body {
 }
 .settings-page .settings-section .settings-profile-links a:hover {
   text-decoration: underline;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/* ================================================================
+   RESPONSIVE DESIGN
+   Tre breakpoint:
+   - 1024px: tablet/laptop piccoli
+   - 768px:  tablet
+   - 480px:  smartphone
+   ================================================================ */
+
+
+/* === NAVBAR =================================================== */
+
+/* Tablet/laptop piccoli: riduco solo il padding laterale */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0 30px;
+  }
+  .navbar .navbar-left {
+    gap: 20px;
+  }
+}
+
+/* Tablet: nascondo i due link meno essenziali e rimpicciolisco
+   il logo. Mantengo le icone del lato destro (kids, lente, ecc.)
+   perché sono importanti per la UX. */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+    height: 60px;
+  }
+  .navbar .logo {
+    height: 32px;
+  }
+  .navbar .navbar-left {
+    gap: 16px;
+  }
+  .navbar .nav-menu {
+    gap: 14px;
+  }
+  .navbar .nav-menu .nav-link {
+    font-size: 13px;
+  }
+  /* Nascondo "Recently Added" (4° link) e "My List" (5° link) */
+  .navbar .nav-menu .nav-link:nth-child(4),
+  .navbar .nav-menu .nav-link:nth-child(5) {
+    display: none;
+  }
+  .navbar .navbar-right {
+    gap: 14px;
+  }
+  .navbar .nav-profile .profile-arrow {
+    display: none;
+  }
+}
+
+/* Smartphone: layout ultra-compatto.
+   Nascondo anche "Movies" e la campanella, ma TENGO il kids icon
+   (era proprio quello che spariva nel progetto originale!). */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 12px;
+    height: 56px;
+  }
+  .navbar .logo {
+    height: 26px;
+  }
+  .navbar .navbar-left {
+    gap: 10px;
+  }
+  .navbar .nav-menu {
+    gap: 10px;
+  }
+  .navbar .nav-menu .nav-link {
+    font-size: 12px;
+  }
+  /* Nascondo anche "Movies" (3° link) — restano solo Home e TV Shows */
+  .navbar .nav-menu .nav-link:nth-child(3) {
+    display: none;
+  }
+  .navbar .navbar-right {
+    gap: 10px;
+  }
+  /* Nascondo la campanella (seconda nav-icon), tengo la lente */
+  .navbar .navbar-right .nav-icon:nth-of-type(2) {
+    display: none;
+  }
+  .navbar .nav-kids-img {
+    height: 22px;
+  }
+  .navbar .profile-avatar,
+  .navbar .nav-profile .profile-avatar {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+
+/* === FILTER SECTION =========================================== */
+
+@media (max-width: 1024px) {
+  .filter-section {
+    padding: 24px 30px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-section {
+    padding: 20px 20px 8px;
+  }
+  .filter-section .page-title {
+    font-size: 26px;
+    margin-bottom: 14px;
+  }
+  .filter-section .filter-left .btn-genre {
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+  .filter-section .btn-layout {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-section {
+    padding: 14px 12px 6px;
+  }
+  .filter-section .page-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .filter-section .filter-controls {
+    /* Su mobile lascio sempre Genres a sinistra e i layout-btn a destra:
+       l'utente con poco spazio capisce subito cosa fa cosa */
+    gap: 8px;
+  }
+  .filter-section .filter-left .btn-genre {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}
+
+
+/* === HERO ===================================================== */
+
+/* Tablet/laptop piccolo: riduco l'altezza e regolo padding */
+@media (max-width: 1024px) {
+  .hero {
+    height: 480px;
+    padding: 0 30px 30px;
+  }
+  .hero .hero-content h1 {
+    font-size: 40px;
+  }
+  .hero .hero-content {
+    max-width: 480px;
+  }
+}
+
+/* Tablet: titolo più piccolo, paragrafo più contenuto */
+@media (max-width: 768px) {
+  .hero {
+    height: 420px;
+    padding: 0 20px 24px;
+  }
+  .hero .hero-content {
+    max-width: 100%;
+  }
+  .hero .hero-content h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .hero .hero-content p {
+    font-size: 15px;
+    margin-bottom: 18px;
+    line-height: 1.4;
+  }
+  .hero .hero-content .hero-buttons .btn {
+    padding: 8px 22px;
+    font-size: 14px;
+  }
+}
+
+/* Smartphone: layout super-compatto.
+   NOTA: aumento l'opacità del gradiente nero perché su schermi
+   piccoli il testo bianco rischia di non leggersi sull'immagine. */
+@media (max-width: 480px) {
+  .hero {
+    height: 380px;
+    padding: 0 12px 18px;
+  }
+  .hero::after {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.2));
+  }
+  .hero .hero-content h1 {
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+  .hero .hero-content p {
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+  .hero .hero-content .hero-buttons .btn {
+    padding: 7px 18px;
+    font-size: 13px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

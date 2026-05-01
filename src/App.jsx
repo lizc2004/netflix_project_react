@@ -1,21 +1,19 @@
 // App.jsx — il componente principale dell'applicazione.
-// Importiamo i componenti dalla cartella components/ e li usiamo
-// come se fossero tag HTML personalizzati.
+// Importa i componenti dalla cartella components/ e li dispone
+// nell'ordine in cui devono apparire nella pagina.
 
 import Navbar from './components/Navbar'
+import FilterSection from './components/FilterSection'
+import Hero from './components/Hero'
 
 function App() {
   return (
     <div className="App">
       <Navbar />
+      <FilterSection />
+      <Hero />
 
-      {/* Qui sotto andranno gli altri componenti:
-          - Hero (la sezione grande)
-          - MovieGallery x 3 (Harry Potter, LOTR, Star Wars)
-          - Footer */}
-      <p style={{ color: 'white', textAlign: 'center', padding: '40px' }}>
-        Sotto la navbar andranno gli altri componenti...
-      </p>
+      {/* TODO: qui andranno le 3 MovieGallery e il Footer */}
     </div>
   )
 }
