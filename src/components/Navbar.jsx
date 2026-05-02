@@ -1,5 +1,10 @@
-// Navbar.jsx — la barra di navigazione in alto
-// È un componente "statico": non ha stati interni, solo struttura.
+// Navbar.jsx — la barra di navigazione in alto.
+// I link che navigano internamente usano <Link to="..."> di react-router-dom,
+// così cambiare pagina NON ricarica il browser (vera SPA).
+// I link "fittizi" (Movies, Recently Added, My List) restano <a href="#">
+// perché non puntano a nessuna pagina vera nel nostro progetto.
+
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   return (
@@ -7,13 +12,16 @@ function Navbar() {
       <div className="navbar-container">
         {/* Lato sinistro: logo + link di navigazione */}
         <div className="navbar-left">
-          <img
-            src="/Netflix-assets/assets/netflix_logo.png"
-            alt="Netflix logo"
-            className="logo"
-          />
+          {/* Il logo riporta alla home */}
+          <Link to="/">
+            <img
+              src="/Netflix-assets/assets/netflix_logo.png"
+              alt="Netflix logo"
+              className="logo"
+            />
+          </Link>
           <nav className="nav-menu" id="nav-links">
-            <a href="#" className="nav-link">Home</a>
+            <Link to="/" className="nav-link">Home</Link>
             <a href="#" className="nav-link active">TV Shows</a>
             <a href="#" className="nav-link">Movies</a>
             <a href="#" className="nav-link">Recently Added</a>
@@ -42,9 +50,9 @@ function Navbar() {
             />
             <span className="profile-arrow">&#9662;</span>
             <div className="profile-dropdown">
-              <a href="#">Edit Profile</a>
-              <a href="#">Account</a>
-              <a href="#">Home</a>
+              <Link to="/profile">Edit Profile</Link>
+              <Link to="/settings">Account</Link>
+              <Link to="/">Home</Link>
             </div>
           </div>
         </div>

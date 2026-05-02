@@ -1040,4 +1040,81 @@ body {
     font-size: 11px;
   }
 }
+
+
+/* === PROFILE PAGE ============================================== */
+
+@media (max-width: 768px) {
+  .profile-page {
+    margin: 30px auto;
+    padding: 0 16px;
+  }
+  .profile-page .profile-title {
+    font-size: 28px;
+  }
+  /* Su mobile l'avatar va sopra i campi (impilati verticalmente) */
+  .profile-page .profile-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .profile-page .profile-avatar-wrap .profile-avatar-large {
+    width: 100px;
+    height: 100px;
+  }
+  .profile-page .profile-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-page .profile-title {
+    font-size: 22px;
+  }
+  .profile-page .profile-section .profile-section-title {
+    font-size: 14px;
+  }
+}
+
+
+/* === SETTINGS PAGE ============================================= */
+
+@media (max-width: 1024px) {
+  .settings-page {
+    padding: 0 30px 60px;
+  }
+}
+
+/* Su tablet le 3 colonne diventano impilate verticalmente */
+@media (max-width: 768px) {
+  .settings-page {
+    margin: 30px auto;
+    padding: 0 20px 40px;
+  }
+  .settings-page .settings-title {
+    font-size: 24px;
+  }
+  .settings-page .settings-section {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 18px 0;
+  }
+  .settings-page .settings-section .settings-profile-links {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .settings-page {
+    padding: 0 12px 30px;
+  }
+  .settings-page .settings-title {
+    font-size: 20px;
+  }
+  .settings-page .settings-section .settings-profile-links {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
 /*# sourceMappingURL=style.css.map */
