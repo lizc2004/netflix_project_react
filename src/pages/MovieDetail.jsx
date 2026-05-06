@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Loader from '../components/Loader'
 import ErrorMessage from '../components/ErrorMessage'
+import CommentSection from '../components/CommentSection'
 
 function MovieDetail() {
 
@@ -127,6 +128,10 @@ function MovieDetail() {
           </div>
         </div>
       </div>
+
+      {/* Sezione commenti: fetch separato da Strive School API.
+          Passiamo l'imdbID come prop, così il componente si autogestisce. */}
+      <CommentSection imdbID={imdbID} />
     </div>
   )
 }

@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
 import Home from './pages/Home'
+import TVShows from './pages/TVShows'
 import Profile from './pages/Profile'
 import Settings from './pages/Settings'
 import MovieDetail from './pages/MovieDetail'
@@ -25,6 +26,7 @@ function App() {
           (es. /banana, /qualunque-cosa) e mostra la pagina NotFound. */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/tv-shows" element={<TVShows />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/movie/:imdbID" element={<MovieDetail />} />

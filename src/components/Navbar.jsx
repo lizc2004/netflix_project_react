@@ -36,7 +36,12 @@ function Navbar() {
             >
               Home
             </Link>
-            <a href="#" className="nav-link">TV Shows</a>
+            <Link
+              to="/tv-shows"
+              className={currentPath === '/tv-shows' ? 'nav-link active' : 'nav-link'}
+            >
+              TV Shows
+            </Link>
             <a href="#" className="nav-link">Movies</a>
             <a href="#" className="nav-link">Recently Added</a>
             <a href="#" className="nav-link">My List</a>
