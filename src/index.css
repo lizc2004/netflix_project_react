@@ -738,6 +738,213 @@ body {
 }
 
 
+/* === NOT FOUND PAGE ============================================ */
+
+.not-found {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.not-found-code {
+  font-size: 120px;
+  font-weight: 700;
+  color: #e50914;
+  margin: 0;
+  line-height: 1;
+}
+
+.not-found-title {
+  font-size: 36px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 16px 0 8px;
+}
+
+.not-found-message {
+  font-size: 16px;
+  color: #b3b3b3;
+  max-width: 480px;
+  margin-bottom: 28px;
+}
+
+.not-found-btn {
+  background-color: #ffffff;
+  color: #221f1f;
+  padding: 12px 36px;
+  font-weight: 600;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.not-found-btn:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.not-found-error-code {
+  margin-top: 40px;
+  font-size: 12px;
+  color: #808080;
+  letter-spacing: 1px;
+  border-top: 1px solid #404040;
+  padding-top: 12px;
+  width: 200px;
+}
+
+
+/* === MOVIE DETAIL PAGE ========================================= */
+
+.movie-detail {
+  position: relative;
+  min-height: 80vh;
+  padding: 40px 50px;
+  overflow: hidden;
+}
+
+.movie-detail-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px) brightness(0.3);
+  z-index: 0;
+}
+
+.movie-detail-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.movie-detail-poster {
+  flex-shrink: 0;
+  width: 280px;
+  aspect-ratio: 2/3;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.movie-detail-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-detail-info {
+  flex: 1;
+  color: #ffffff;
+}
+
+.movie-detail-info h1 {
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.movie-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #b3b3b3;
+  margin-bottom: 20px;
+}
+
+.movie-detail-meta .dot {
+  color: #555;
+}
+
+.movie-detail-plot {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e5e5e5;
+  margin-bottom: 24px;
+}
+
+.movie-detail-credits {
+  margin-bottom: 24px;
+}
+
+.movie-detail-credits p {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #b3b3b3;
+}
+
+.movie-detail-credits strong {
+  color: #ffffff;
+  margin-right: 8px;
+}
+
+.movie-detail-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.rating-imdb {
+  background-color: #f5c518;
+  color: #000000;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.rating-value {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.rating-votes {
+  color: #808080;
+  font-size: 13px;
+}
+
+.movie-detail-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-back {
+  background-color: rgba(109, 109, 110, 0.7);
+  color: #ffffff;
+  padding: 10px 28px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-back:hover {
+  background-color: rgba(109, 109, 110, 0.5);
+}
+
+/* La movie-card ora è dentro un <Link> — rimuovo decorazione di default */
+.movie-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+
 /* ================================================================
    RESPONSIVE DESIGN
    Tre breakpoint:
@@ -1115,6 +1322,88 @@ body {
   .settings-page .settings-section .settings-profile-links {
     flex-direction: column;
     gap: 16px;
+  }
+}
+
+
+/* === NOT FOUND PAGE (responsive) =============================== */
+
+@media (max-width: 768px) {
+  .not-found-code {
+    font-size: 80px;
+  }
+  .not-found-title {
+    font-size: 26px;
+  }
+  .not-found-message {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .not-found-code {
+    font-size: 60px;
+  }
+  .not-found-title {
+    font-size: 22px;
+  }
+}
+
+
+/* === MOVIE DETAIL PAGE (responsive) ============================ */
+
+@media (max-width: 1024px) {
+  .movie-detail {
+    padding: 30px;
+  }
+  .movie-detail-poster {
+    width: 220px;
+  }
+  .movie-detail-info h1 {
+    font-size: 34px;
+  }
+}
+
+/* Tablet: poster sopra, info sotto (impilati verticalmente) */
+@media (max-width: 768px) {
+  .movie-detail {
+    padding: 24px 20px;
+  }
+  .movie-detail-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+  }
+  .movie-detail-poster {
+    width: 200px;
+  }
+  .movie-detail-info h1 {
+    font-size: 28px;
+  }
+  .movie-detail-meta {
+    justify-content: center;
+  }
+  .movie-detail-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-detail {
+    padding: 16px 12px;
+  }
+  .movie-detail-poster {
+    width: 160px;
+  }
+  .movie-detail-info h1 {
+    font-size: 22px;
+  }
+  .movie-detail-plot {
+    font-size: 14px;
+  }
+  .movie-detail-credits p {
+    font-size: 13px;
   }
 }
 /*# sourceMappingURL=style.css.map */

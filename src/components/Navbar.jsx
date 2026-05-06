@@ -1,12 +1,19 @@
 // Navbar.jsx — la barra di navigazione in alto.
 // I link che navigano internamente usano <Link to="..."> di react-router-dom,
 // così cambiare pagina NON ricarica il browser (vera SPA).
-// I link "fittizi" (Movies, Recently Added, My List) restano <a href="#">
-// perché non puntano a nessuna pagina vera nel nostro progetto.
+//
+// useLocation() ci dà accesso all'oggetto location del router, da cui leggiamo
+// pathname (l'URL corrente). Lo usiamo per applicare la classe "active" al link
+// che corrisponde alla pagina corrente, in modo dinamico.
 
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 function Navbar() {
+
+  // Leggo l'URL corrente. location.pathname sarà "/", "/profile", "/settings", ecc.
+  const location = useLocation()
+  const currentPath = location.pathname
+
   return (
     <header className="navbar" id="main-navbar">
       <div className="navbar-container">
@@ -21,8 +28,15 @@ function Navbar() {
             />
           </Link>
           <nav className="nav-menu" id="nav-links">
-            <Link to="/" className="nav-link">Home</Link>
-            <a href="#" className="nav-link active">TV Shows</a>
+            {/* La classe "active" viene applicata dinamicamente confrontando
+                il pathname corrente con la destinazione del link. */}
+            <Link
+              to="/"
+              className={currentPath === '/' ? 'nav-link active' : 'nav-link'}
+            >
+              Home
+            </Link>
+            <a href="#" className="nav-link">TV Shows</a>
             <a href="#" className="nav-link">Movies</a>
             <a href="#" className="nav-link">Recently Added</a>
             <a href="#" className="nav-link">My List</a>

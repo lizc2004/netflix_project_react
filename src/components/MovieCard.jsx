@@ -1,39 +1,34 @@
 // MovieCard.jsx — la singola card di un film.
-// Riceve due "props" dal genitore: il titolo e l'URL del poster.
+// Riceve tre "props" dal genitore: titolo, poster e imdbID.
+// L'imdbID serve per costruire il link al dettaglio del film.
 //
-// Mostriamo un placeholder con il titolo del film in due casi:
-// 1. OMDB ha restituito "N/A" come poster (immagine non disponibile)
-// 2. L'URL del poster esiste ma il browser non riesce a caricarlo
-//    (link morto, 404, immagine bloccata, ecc.) — gestito con onError
+// Quando l'utente clicca sulla card, viene portato a /movie/<imdbID>
+// che è gestita da MovieDetail. Il routing è SPA (no reload).
 
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-function MovieCard({ title, poster }) {
+function MovieCard({ title, poster, imdbID }) {
 
-  // Stato: ricorda se il caricamento dell'immagine è fallito.
-  // Parte da false (assumiamo che vada bene), e diventa true
-  // se onError viene chiamato.
   const [imageFailed, setImageFailed] = useState(false)
-
-  // Mostro il placeholder se:
-  // - il poster manca o è "N/A" (OMDB non ce l'ha)
-  // - OPPURE il caricamento dell'immagine è fallito
   const showPlaceholder = !poster || poster === 'N/A' || imageFailed
 
   return (
-    <div className="movie-card">
-      {showPlaceholder ? (
-        <div className="movie-card-placeholder">
-          <span>{title}</span>
-        </div>
-      ) : (
-        <img
-          src={poster}
-          alt={title}
-          onError={() => setImageFailed(true)}
-        />
-      )}
-    </div>
+    <Link to={`/movie/${imdbID}`} className="movie-card-link">
+      <div className="movie-card">
+        {showPlaceholder ? (
+          <div className="movie-card-placeholder">
+            <span>{title}</span>
+          </div>
+        ) : (
+          <img
+            src={poster}
+            alt={title}
+            onError={() => setImageFailed(true)}
+          />
+        )}
+      </div>
+    </Link>
   )
 }
 

@@ -97,6 +97,7 @@ function MovieGallery({ title, searchQuery }) {
               key={movie.imdbID}
               title={movie.Title}
               poster={movie.Poster}
+              imdbID={movie.imdbID}
             />
           ))}
         </div>
